@@ -10,8 +10,8 @@ export default function Home() {
       <div className="mb-10">
         <h2 className="text-lg font-bold mt-4 mb-2">Paul's Progress</h2>
         <p>Paul is working tireless to complete his course "The Complete Web Developer Course 3.0" on udemy.</p>
-        <Progress title="Sections complete" x="1" y="16" />
-        <Progress title="Lectures complete" x="34" y="223" />
+        <Progress title="Sections complete" x={1} y={165} />
+        <Progress title="Lectures complete" x={34} y={223} />
         <span className="text-sm text-right text-slate-600">*This is approx. we try to keep it as up to date as possible.</span>
       </div>
       <div className="mb-10">

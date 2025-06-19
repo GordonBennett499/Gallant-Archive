@@ -1,4 +1,10 @@
-const Progress = ({title, x, y}) => {
+interface ProgressProps {
+    title: string,
+    x: number,
+    y: number
+}
+
+const Progress = ({title, x, y}: ProgressProps) => {
     return (
         <div className="my-3">
             <h3 className="font-bold mb-2">{title} {x}/{y}</h3>

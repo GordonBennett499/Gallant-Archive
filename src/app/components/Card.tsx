@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
+import { PropsWithChildren, PropsWithoutRef } from "react";
 
-const Card = ({title, url, ...props}) => {
+interface CardProps {
+    title: string,
+    url: string,
+    children?: React.ReactNode
+}
+
+const Card = ({title, url, ...props}: CardProps) => {
     return (
         <div className="border rounded-md p-3">
             <h3 className="font-bold mb-2">
