@@ -1,6 +1,12 @@
 import {promises as fs} from 'fs';
 import { Check, X } from 'lucide-react';
 
+interface PromiseType {
+  text: string,
+  date: string,
+  completed: boolean
+}
+
 export default async function PromisesTable() {
 
     const file = await fs.readFile(process.cwd() + '/src/app/promises.json', 'utf-8');
@@ -17,7 +23,7 @@ export default async function PromisesTable() {
               </tr>
             </thead>
             <tbody>
-              {promises.map((promise) => {
+              {promises.map((promise: PromiseType) => {
                   return (
                     <tr key={promise.text}>
                         <td className="py-2 pl-2">{promise.text}</td>
