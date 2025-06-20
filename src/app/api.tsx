@@ -20,5 +20,8 @@ export async function getPromises() {
 }
 
 function getFilePath(fileName: string) {
+    if (process.env.VERCEL_ENV && process.env.VERCEL_ENV === 'production') {
+        return `/${fileName}`;
+    }
     return `${process.cwd()}/src/app/${fileName}`;
 }
