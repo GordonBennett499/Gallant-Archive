@@ -5,7 +5,7 @@ export default async function Page({params}: {params: Promise<{slug: string}>}) 
     const {slug} = await params;
 
     console.log(process.cwd())
-    const file = await fs.readFile(process.cwd() + '/public/projects.json', 'utf-8');
+    const file = await fs.readFile(process.cwd() + '/../../public/projects.json', 'utf-8');
     const data = JSON.parse(file);
 
     const project = data[slug];    
