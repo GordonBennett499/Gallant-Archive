@@ -3,8 +3,8 @@ import {promises as fs} from 'fs';
 
 export async function getProjects() {
 
-    console.log(process.cwd());
-    const file = await fs.readFile(process.cwd() + '/public/projects.json', 'utf-8');
+    console.log('test -- ' + getFilePath('projects.json'))
+    const file = await fs.readFile(getFilePath('projects.json'), 'utf-8');
     const data = JSON.parse(file);
     return data;
 }
@@ -15,6 +15,14 @@ export async function getProject(id: string) {
 }
 
 export async function getPromises() {
-    const file = await fs.readFile(process.cwd() + '/public/promises.json', 'utf-8');
+    const file = await fs.readFile(getFilePath('promises.json'), 'utf-8');
     return JSON.parse(file);
+}
+
+function getFilePath(fileName: string) {
+    console.log(process.env.VERCEL_ENV);
+    if (process.env.VERCEL_ENV && process.env.VERCEL_ENV === 'production') {
+        return `/${fileName}`;
+    }
+    return `${process.cwd()}/src/app/${fileName}`;
 }
