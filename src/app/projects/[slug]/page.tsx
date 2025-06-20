@@ -1,11 +1,10 @@
 import { log } from 'console';
 import {promises as fs} from 'fs';
-import { getProject } from '@/app/api';
+import projects from '../../projects.json';
 
 export default async function Page({params}: {params: Promise<{slug: string}>}) {
     const {slug} = await params;
-
-    const project = await getProject(slug);
+    const project = projects[slug as keyof typeof projects];
 
     return (
         <div>

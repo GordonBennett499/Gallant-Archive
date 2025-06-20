@@ -1,6 +1,6 @@
 import {promises as fs} from 'fs';
 import { Check, X } from 'lucide-react';
-import { getPromises } from '../api';
+import promises from '../promises.json';
 
 interface PromiseType {
   text: string,
@@ -9,8 +9,6 @@ interface PromiseType {
 }
 
 export default async function PromisesTable() {
-
-    const promises = await getPromises();
 
     return (
         <div className="border rounded-md mt-3">
