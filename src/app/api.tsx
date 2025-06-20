@@ -4,7 +4,7 @@ import {promises as fs} from 'fs';
 export async function getProjects() {
 
     console.log(process.cwd());
-    const file = await fs.readFile(process.cwd() + '/src/app/projects.json', 'utf-8');
+    const file = await fs.readFile(process.cwd() + '/public/projects.json', 'utf-8');
     const data = JSON.parse(file);
     return data;
 }
@@ -15,6 +15,6 @@ export async function getProject(id: string) {
 }
 
 export async function getPromises() {
-    const file = await fs.readFile(process.cwd() + '/src/app/promises.json', 'utf-8');
+    const file = await fs.readFile(process.cwd() + '/public/promises.json', 'utf-8');
     return JSON.parse(file);
 }
