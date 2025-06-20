@@ -8,7 +8,7 @@ import PromisesTable from './components/PromisesTable';
 
 export default async function Home() {
 
-  const file = await fs.readFile(process.cwd() + '/src/app/projects.json', 'utf-8');
+  const file = await fs.readFile(process.cwd() + '/public/projects.json', 'utf-8');
   const projects = JSON.parse(file);
 
   return (

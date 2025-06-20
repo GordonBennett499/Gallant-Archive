@@ -9,7 +9,7 @@ interface PromiseType {
 
 export default async function PromisesTable() {
 
-    const file = await fs.readFile(process.cwd() + '/src/app/promises.json', 'utf-8');
+    const file = await fs.readFile(process.cwd() + '/public/promises.json', 'utf-8');
     const promises = JSON.parse(file);
 
     return (
