@@ -5,11 +5,11 @@ import Link from 'next/link';
 import Card from "./components/Card";
 import Progress from "./components/Progress";
 import PromisesTable from './components/PromisesTable';
+import { getProjects } from './api';
 
 export default async function Home() {
 
-  const file = await fs.readFile(process.cwd() + '/public/projects.json', 'utf-8');
-  const projects = JSON.parse(file);
+  const projects = await getProjects();
 
   return (
     <div className="">
