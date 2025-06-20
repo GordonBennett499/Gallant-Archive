@@ -1,12 +1,11 @@
-import { promises as fs } from 'fs';
+import { log } from 'console';
+import {promises as fs} from 'fs';
+import { getProject } from '@/app/api';
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
 
-    const file = await fs.readFile(process.cwd() + '/src/app/projects/[slug]/projects.json', 'utf-8');
-    const data = JSON.parse(file);
-
-    const project = data[slug];
+    const project = await getProject(slug);
 
     return (
         <div>

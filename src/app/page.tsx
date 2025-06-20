@@ -5,17 +5,17 @@ import Link from 'next/link';
 import Card from "./components/Card";
 import Progress from "./components/Progress";
 import PromisesTable from './components/PromisesTable';
+import { getProjects } from './api';
 
 export default async function Home() {
 
-  const file = await fs.readFile(process.cwd() + '/src/app/projects.json', 'utf-8');
-  const projects = JSON.parse(file);
+  const projects = await getProjects();
 
   return (
     <div className="">
       <div className="mb-10">
         <h2 className="text-lg font-bold mt-4 mb-2">Paul's Progress</h2>
-        <p>Paul is working tireless to complete his course "The Complete Web Developer Course 3.0" on udemy.</p>
+        <p>Paul is working tirelessly to complete his course "The Complete Web Developer Course 3.0" on udemy.</p>
         <Progress title="Sections complete" x={1} y={16} />
         <Progress title="Lectures complete" x={34} y={223} />
         <span className="text-sm text-right text-slate-600">*This is approx. we try to keep it as up to date as possible.</span>
