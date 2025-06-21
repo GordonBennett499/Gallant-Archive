@@ -4,53 +4,83 @@
     "description": "Meet people, but not in a <em>dating</em> kind of way.",
     "content": "",
     "logo": "",
-    "date": "",
-    "links": [{}]
+    "announceddate": "",
+    "releasedate": "",
+    "links": [
+      {
+        "label": "Website",
+        "url": "https://www.Seeking-you.org/"
+      }
+    ],
+    "projecttype": "Social Network"
   },
   "geordie-nation": {
     "title": "Geordie Nation",
     "description": "A platform for businesses in Newcastle to connect.",
     "content": "",
     "logo": "",
-    "annouced-date": "12/04/2025",
-    "release-date": "12/04/2025",
-    "links": [{}]
+    "announceddate": "",
+    "releasedate": "",
+    "links": [{}],
+    "projecttype": "Social Network"
   },
   "streets-of-home": {
     "title": "Streets of Home",
     "description": "A buggy racing game through the streets of Newcastle-upon-tyne.",
     "content": "",
     "logo": "",
-    "date": "",
-    "links": [{}]
+    "announceddate": "",
+    "releasedate": "",
+    "links": [
+      {
+        "label": "Github Repo",
+        "url": "https://github.com/Paulgallant/Street-s-of-Home-game"
+      },
+      {
+        "label": "Second Github Repo",
+        "url": "https://github.com/Paulgallant/sb1-b72wsr3j"
+      }
+    ],
+    "projecttype": "Video game with crypto elements"
   },
   "ubbc": {
     "title": "United Boat Builders Cup",
     "description": "I think this is another racing game.. but boats this time?",
     "content": "",
     "logo": "",
-    "date": "",
-    "links": [{}]
+    "announceddate": "",
+    "releasedate": "",
+    "links": [{}],
+    "projecttype": "Video Game"
   },
   "32k-tv": {
     "title": "32K TV",
     "description": "The next generation of Ultra-Ultra-Ultra High Definition TV, with a Crypto twist.",
     "content": "",
     "logo": "",
-    "date": "",
+    "announceddate": "",
+    "releasedate": "",
     "links": [
       {
         "label": "32k TV Website",
         "url": "https://32k-tv-inc.com/"
       }
-    ]
+    ],
+    "projecttype": "Televisions / Crypto-Token"
   },
   "dual-energy": {
     "title": "Dual Energy",
     "description": "Buy some land, fill it with wind and solar generators... profit?",
-    "content": "",
+    "content": "It appears to be also a ERC20 Token",
     "logo": "",
-    "date": "",
-    "links": [{}]
+    "annouceddate": "10/05/2024",
+    "releasedate": "",
+    "links": [
+      {
+        "label": "Facebook",
+        "url": "https://www.facebook.com/profile.php?id=61559598838823"
+      }
+    ],
+    "projecttype": "Energy Company / Crypto-Token"
   }
 }
