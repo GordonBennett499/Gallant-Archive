@@ -8,7 +8,7 @@ interface SideCardProps {
 
 const SideCard = ({ data }: SideCardProps) => {
     return (
-        <div className="flex flex-col border p-5 rounded-lg m-7 mr-0 text-center ">
+        <div className="flex flex-col border p-5 rounded-lg mt-3 mr-0 ml-0 text-center ">
             <h1 className="text-2xl font-bold pb-2 border-b">{data.title}</h1>
 
             <div className="border-b pt-10 pb-2">
