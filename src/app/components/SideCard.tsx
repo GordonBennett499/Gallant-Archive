@@ -17,19 +17,32 @@ const SideCard = ({ data }: SideCardProps) => {
                     alt="projectlogo"
                     className="mx-auto block w-[100px] h-[100px]"
                 />
-                <p className="italic text-sm pt-5">Current known logo</p>
+                <p className="italic text-sm pt-5">Current known logo *</p>
             </div>
 
             <div className="pt-1 pb-1 text-xl border-b font-bold">
                 Dates
                 <div className="font-normal text-base">
                     <div className="p-2 flex justify-between">
-                        <h2 className="font-bold">Announced</h2>
-                        <h2>{data.announceddate || 'TBA'}</h2>
+                        <h2 className="font-bold">First Mentioned</h2>
+                        <h2>{data.announceddate || 'TBF'}</h2>
                     </div>
                     <div className="p-2 flex justify-between">
-                        <h2 className="font-bold">Release</h2>
+                        <h2 className="font-bold">Current Release Date *</h2>
                         <h2>{data.releasedate || 'TBA'}</h2>
+                    </div>
+                </div>
+            </div>
+            <div className="pt-1 pb-1 text-xl border-b font-bold">
+                Stats
+                <div className="font-normal text-base">
+                    <div className="p-2 flex justify-between">
+                        <h2 className="font-bold">Estimated Employees</h2>
+                        <h2>{data.employees || 'TBA'}</h2>
+                    </div>
+                    <div className="p-2 flex justify-between">
+                        <h2 className="font-bold">Location</h2>
+                        <h2>{data.location || 'TBA'}</h2>
                     </div>
                 </div>
             </div>
@@ -55,6 +68,7 @@ const SideCard = ({ data }: SideCardProps) => {
                     )}
                 </div>
             </div>
+            <p className="italic text-sm pt-2">* Subject to change.. Alot</p>
         </div >
     );
 };
