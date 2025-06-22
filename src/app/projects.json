@@ -98,17 +98,5 @@
     "projecttype": "Energy Company / Crypto-Token",
     "employees": "0",
     "location": "Newcastle"
-  },
-  "new-project": {
-    "title": "New Project",
-    "description": "A new project description.",
-    "content": "",
-    "logo": "",
-    "announceddate": "",
-    "releasedate": "",
-    "links": [{}],
-    "projecttype": "New Type",
-    "employees": "0",
-    "location": "Newcastle"
   }
 }
