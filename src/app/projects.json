@@ -1,69 +1,19 @@
 {
   "seeking-you": {
     "title": "Seeking You",
-    "description": "Meet people, but not in a <em>dating</em> kind of way.",
-    "content": "<p>\"Someone\" has created a clone of Seeking You called \"<a href=\"https://seeking-you2.org\" target=\"_blank\" class=\"text-violet-400 hover:text-violet-500 font-bold\">Seeking You 2</a>\". This made Paul angry.</p>",
-    "logo": "",
-    "announceddate": "",
-    "releasedate": "30/06/2025",
-    "links": [
-      {
-        "label": "Website",
-        "url": "https://www.Seeking-you.org/"
-      },
-      {
-        "label": "Seeking You 2",
-        "url": "https://www.Seeking-you2.org/"
-      }
-    ],
-    "projecttype": "Social Network",
-    "employees": "0",
-    "location": "Newcastle"
+    "description": "Meet people, but not in a <em>dating</em> kind of way."
   },
   "geordie-nation": {
     "title": "Geordie Nation",
-    "description": "A platform for businesses in Newcastle to connect.",
-    "content": "",
-    "logo": "",
-    "announceddate": "",
-    "releasedate": "",
-    "links": [{}],
-    "projecttype": "Social Network",
-    "employees": "0",
-    "location": "Newcastle"
+    "description": "A platform for businesses in Newcastle to connect."
   },
   "streets-of-home": {
     "title": "Streets of Home",
-    "description": "A buggy racing game through the streets of Newcastle-upon-tyne.",
-    "content": "",
-    "logo": "",
-    "announceddate": "",
-    "releasedate": "31/12/2025",
-    "links": [
-      {
-        "label": "Github Repo",
-        "url": "https://github.com/Paulgallant/Street-s-of-Home-game"
-      },
-      {
-        "label": "Second Github Repo",
-        "url": "https://github.com/Paulgallant/sb1-b72wsr3j"
-      }
-    ],
-    "projecttype": "Video game with crypto elements",
-    "employees": "300",
-    "location": "Newcastle"
+    "description": "A buggy racing game through the streets of Newcastle-upon-tyne."
   },
   "ubbc": {
     "title": "United Boat Builders Cup",
-    "description": "I think this is another racing game.. but boats this time?",
-    "content": "",
-    "logo": "",
-    "announceddate": "",
-    "releasedate": "",
-    "links": [{}],
-    "projecttype": "Video Game",
-    "employees": "0",
-    "location": "Newcastle"
+    "description": "I think this is another racing game.. but boats this time?"
   },
   "32k-tv": {
     "title": "32K TV",
@@ -71,19 +21,6 @@
   },
   "dual-energy": {
     "title": "Dual Energy",
-    "description": "Buy some land, fill it with wind and solar generators... profit?",
-    "content": "It appears to be also a ERC20 Token",
-    "logo": "",
-    "annouceddate": "10/05/2024",
-    "releasedate": "",
-    "links": [
-      {
-        "label": "Facebook",
-        "url": "https://www.facebook.com/profile.php?id=61559598838823"
-      }
-    ],
-    "projecttype": "Energy Company / Crypto-Token",
-    "employees": "0",
-    "location": "Newcastle"
+    "description": "Buy some land, fill it with wind and solar generators... profit?"
   }
 }
