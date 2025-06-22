@@ -5,14 +5,20 @@
     "content": "<p>\"Someone\" has created a clone of Seeking You called \"<a href=\"https://seeking-you2.org\" target=\"_blank\" className=\"text-violet-500 font-bold\">Seeking You 2</a>\". This made Paul angry.</p>",
     "logo": "",
     "announceddate": "",
-    "releasedate": "",
+    "releasedate": "30/06/2025",
     "links": [
       {
         "label": "Website",
         "url": "https://www.Seeking-you.org/"
+      },
+      {
+        "label": "Seeking You 2",
+        "url": "https://www.Seeking-you2.org/"
       }
     ],
-    "projecttype": "Social Network"
+    "projecttype": "Social Network",
+    "employees": "0",
+    "location": "Newcastle"
   },
   "geordie-nation": {
     "title": "Geordie Nation",
@@ -22,7 +28,9 @@
     "announceddate": "",
     "releasedate": "",
     "links": [{}],
-    "projecttype": "Social Network"
+    "projecttype": "Social Network",
+    "employees": "0",
+    "location": "Newcastle"
   },
   "streets-of-home": {
     "title": "Streets of Home",
@@ -30,7 +38,7 @@
     "content": "",
     "logo": "",
     "announceddate": "",
-    "releasedate": "",
+    "releasedate": "31/12/2025",
     "links": [
       {
         "label": "Github Repo",
@@ -41,7 +49,9 @@
         "url": "https://github.com/Paulgallant/sb1-b72wsr3j"
       }
     ],
-    "projecttype": "Video game with crypto elements"
+    "projecttype": "Video game with crypto elements",
+    "employees": "300",
+    "location": "Newcastle"
   },
   "ubbc": {
     "title": "United Boat Builders Cup",
@@ -51,7 +61,9 @@
     "announceddate": "",
     "releasedate": "",
     "links": [{}],
-    "projecttype": "Video Game"
+    "projecttype": "Video Game",
+    "employees": "0",
+    "location": "Newcastle"
   },
   "32k-tv": {
     "title": "32K TV",
@@ -66,7 +78,9 @@
         "url": "https://32k-tv-inc.com/"
       }
     ],
-    "projecttype": "Televisions / Crypto-Token"
+    "projecttype": "Televisions / Crypto-Token",
+    "employees": "0",
+    "location": "Newcastle"
   },
   "dual-energy": {
     "title": "Dual Energy",
@@ -81,6 +95,8 @@
         "url": "https://www.facebook.com/profile.php?id=61559598838823"
       }
     ],
-    "projecttype": "Energy Company / Crypto-Token"
+    "projecttype": "Energy Company / Crypto-Token",
+    "employees": "0",
+    "location": "Newcastle"
   }
 }
