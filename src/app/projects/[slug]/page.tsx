@@ -8,7 +8,7 @@ import { evaluate, type EvaluateOptions, MDXRemote } from "next-mdx-remote-clien
 const POSTS_FOLDER = path.join('/../../src/content/projects');
 
 type Frontmatter = {
-  title: string;
+    title: string;
 };
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
@@ -17,11 +17,15 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
     const source = await readPostFile(slug);
     const options: EvaluateOptions = {
-    mdxOptions: {},
-    parseFrontmatter: true,
-  };
+        mdxOptions: {},
+        parseFrontmatter: true,
+    };
 
-    const {content, frontmatter} = await evaluate<Frontmatter>({
+    if (!source) {
+        return <div className="text-center text-red-500">Project not found</div>;
+    }
+
+    const { content, frontmatter } = await evaluate<Frontmatter>({
         source,
         options
     });
