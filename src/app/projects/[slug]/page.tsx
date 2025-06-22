@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 }
 
 async function readPostFile(slug: string) {
-    const p = path.join(process.cwd(), POSTS_FOLDER, `seeking-you.mdx`);
+    const p = path.join(process.cwd(), POSTS_FOLDER, `${slug}.mdx`);
     const filePath = path.resolve(p);
 
     try {
