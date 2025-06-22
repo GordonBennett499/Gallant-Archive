@@ -67,20 +67,7 @@
   },
   "32k-tv": {
     "title": "32K TV",
-    "description": "The next generation of Ultra-Ultra-Ultra High Definition TV, with a Crypto twist.",
-    "content": "",
-    "logo": "",
-    "announceddate": "",
-    "releasedate": "",
-    "links": [
-      {
-        "label": "32k TV Website",
-        "url": "https://32k-tv-inc.com/"
-      }
-    ],
-    "projecttype": "Televisions / Crypto-Token",
-    "employees": "0",
-    "location": "Newcastle"
+    "description": "The next generation of Ultra-Ultra-Ultra High Definition TV, with a Crypto twist."
   },
   "dual-energy": {
     "title": "Dual Energy",
