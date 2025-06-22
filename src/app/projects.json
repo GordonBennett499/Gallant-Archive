@@ -2,7 +2,7 @@
   "seeking-you": {
     "title": "Seeking You",
     "description": "Meet people, but not in a <em>dating</em> kind of way.",
-    "content": "<p>\"Someone\" has created a clone of Seeking You called \"<a href=\"https://seeking-you2.org\" target=\"_blank\" className=\"text-violet-500 font-bold\">Seeking You 2</a>\". This made Paul angry.</p>",
+    "content": "<p>\"Someone\" has created a clone of Seeking You called \"<a href=\"https://seeking-you2.org\" target=\"_blank\" class=\"text-violet-400 hover:text-violet-500 font-bold\">Seeking You 2</a>\". This made Paul angry.</p>",
     "logo": "",
     "announceddate": "",
     "releasedate": "30/06/2025",
@@ -96,6 +96,18 @@
       }
     ],
     "projecttype": "Energy Company / Crypto-Token",
+    "employees": "0",
+    "location": "Newcastle"
+  },
+  "new-project": {
+    "title": "New Project",
+    "description": "A new project description.",
+    "content": "",
+    "logo": "",
+    "announceddate": "",
+    "releasedate": "",
+    "links": [{}],
+    "projecttype": "New Type",
     "employees": "0",
     "location": "Newcastle"
   }

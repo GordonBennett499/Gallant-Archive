@@ -12,7 +12,7 @@ const Card = ({title, url, ...props}: CardProps) => {
     return (
         <div className="border rounded-md p-3">
             <h3 className="font-bold mb-2">
-              <Link href={url} className="flex flex-row gap-3">{title} <MoveRight /></Link>
+              <Link href={url} className="flex flex-row gap-3 hover:underline underline-offset-4">{title} <MoveRight /></Link>
             </h3>
             {props.children}
         </div>
