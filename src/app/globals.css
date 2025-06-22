@@ -22,3 +22,22 @@
 body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
+
+
+.markdown-content p {
+  margin: 0 0 .5rem;
+}
+
+.markdown-content h2 {
+  margin-top: 2rem;
+  margin-bottom: .5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.markdown-content h3 {
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}

@@ -31,8 +31,10 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <h1 className="text-2xl font-bold border-b py-2 mb-5">{project.title || ' '}</h1>
             <div className="flex md:flex-row flex-col-reverse gap-5">
                 <div className="w-full lg:w-3/5">
-                    <div className="mb-5 pt-5 w-full border-b pb-1" dangerouslySetInnerHTML={{ __html: project.description || ' ' }}></div>
-                    {content}
+                    <div className="mb-5 pt-5 w-full border-b pb-3" dangerouslySetInnerHTML={{ __html: project.description || ' ' }}></div>
+                    <div className="markdown-content">
+                        {content}
+                    </div>
                 </div>
                 <div className="w-full lg:w-2/5 top-10">
                     <SideCard data={frontmatter} />
