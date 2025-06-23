@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                 <span className="ml-3 text-sm text-gray-500 font-normal">Last updated: {frontmatter.lastUpdated || ' '}</span>
             </div>
             <div className="flex md:flex-row flex-col-reverse gap-5">
-                <div className="w-full lg:w-3/5">
+                <div className="w-full md:w-3/4">
                     <div className="markdown-content">
                         {content}
                     </div>
