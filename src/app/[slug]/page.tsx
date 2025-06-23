@@ -1,33 +1,28 @@
 import path from "path";
-import projects from '../../projects.json';
-import SideCard from '@/app/components/SideCard';
 import { readFile, access } from "fs/promises";
+import { evaluate, type EvaluateOptions } from "next-mdx-remote-client/rsc";
 
-import { evaluate, type EvaluateOptions, MDXRemote } from "next-mdx-remote-client/rsc";
-
-const POSTS_FOLDER = path.join('/../../src/content/projects');
+const POSTS_FOLDER = path.join('/../../src/content');
 
 type Frontmatter = {
     title: string;
+    lastUpdated: string;
 };
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const project = projects[slug as keyof typeof projects];
+
+    const postContent = await readPostFile(slug);
     const source = await readPostFile(slug);
 
-    if (!project || !source) {
-        return <div>Project not found</div>;
+    if (!postContent || !source) {
+        return <div>Post not found</div>;
     }
 
     const options: EvaluateOptions = {
         mdxOptions: {},
         parseFrontmatter: true,
     };
-
-    if (!source) {
-        return <div className="text-center text-red-500">Project not found</div>;
-    }
 
     const { content, frontmatter } = await evaluate<Frontmatter>({
         source,
@@ -36,16 +31,15 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
     return (
         <div>
-            <h1 className="text-2xl font-bold border-b py-2 mb-5">{project.title || ' '}</h1>
+            <div className="border-b py-2 mb-5 flex flex-row justify-between items-baseline">
+                <h1 className="text-2xl font-bold">{frontmatter.title || ' '}</h1>
+                <span className="ml-3 text-sm text-gray-500 font-normal">Last updated: {frontmatter.lastUpdated || ' '}</span>
+            </div>
             <div className="flex md:flex-row flex-col-reverse gap-5">
-                <div className="w-full lg:w-3/5">
-                    <div className="mb-5 pt-5 w-full border-b pb-3" dangerouslySetInnerHTML={{ __html: project.description || ' ' }}></div>
+                <div className="w-full md:w-3/4">
                     <div className="markdown-content">
                         {content}
                     </div>
-                </div>
-                <div className="w-full lg:w-2/5 top-10">
-                    <SideCard data={frontmatter} />
                 </div>
             </div>
 
