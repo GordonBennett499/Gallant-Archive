@@ -17,8 +17,9 @@ const NavBar = () => {
         <header className="relative mx-auto w-full max-w-6xl px-10 py-5 flex flex-col md:flex-row gap-3 md:justify-between md:items-center">
             <Link href="/" className="text-3xl font-bold tracking-wide">Gallant Archive</Link>
             <div className="flex flex-col md:flex-row gap-3 md:items-center">
-                <div className="flex flex-col md:flex-row gap-4 items-center border rounded-md py-2 px-3">
-                    <Link href="/about" className="hover:underline underline-offset-3 underline-width-2">About Paul</Link>
+                <div className="flex flex-col md:flex-row gap-2 items-center border rounded-md py-2 px-3">
+                    <Link href="/about" className="hover:underline underline-offset-3 underline-width-2 md:pr-2 md:border-r">About Paul</Link>
+                    <Link href="/projects" className="hover:underline underline-offset-3 underline-width-2">Projects</Link>
                 </div>
                 <button onClick={checkJob} className="bg-violet-400 text-white px-4 py-2 rounded-md cursor-pointer">{buttonText}</button>
             </div>

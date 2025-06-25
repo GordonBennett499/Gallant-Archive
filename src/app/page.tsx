@@ -1,25 +1,24 @@
-import {promises as fs} from 'fs';
-import Image from "next/image";
 import { MoveRight } from "lucide-react";
 import Link from 'next/link';
 import Card from "./components/Card";
 import Progress from "./components/Progress";
 import PromisesTable from './components/PromisesTable';
-import projects from './projects.json';
 import Accordion from './components/Accordion';
+
+import projects from './projects.json';
 
 export default async function Home() {
 
   return (
     <div className="">
-      <div className="mb-10">
+      <div className="mb-5">
         <h2 className="text-xl font-bold mt-4 mb-2">Paul's Projects</h2>
         <p>Paul has a lot of projects in the works. It's doubtful any of them will ever see the light of day.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
           {Object.keys(projects).slice(0, 6).map((pid) => {
             const project = projects[pid as keyof typeof projects];
             return (
-              <Card key={pid} title={project.title} url={`/projects/${pid}`}><span dangerouslySetInnerHTML={{__html: project.description}}></span></Card>
+              <Card key={pid} title={project.title} url={`/projects/${pid}`}><span dangerouslySetInnerHTML={{ __html: project.description }}></span></Card>
             )
           })}
         </div>
@@ -28,6 +27,11 @@ export default async function Home() {
             View more projects <MoveRight className="w-4 h-4" />
           </Link>
         </p>
+      </div>
+            <div className="mb-10">
+        <h2 className="text-xl font-bold mt-4 mb-2">Paul's Promises</h2>
+        <p>Paul likes to make promises. His apps will be live "soon"</p>
+        <PromisesTable />
       </div>
       <div className="mb-5">
         <Accordion title="Paul's Progress" description='Paul is working tirelessly to complete his course "The Complete Web Developer Course 3.0" on udemy.'>
@@ -39,11 +43,6 @@ export default async function Home() {
           <p>So far, Paul has gotten as <strong><em>opening</em></strong> the course.</p>
           <Progress title="Free Code Camp steps complete" x={0} y={1042} />
           <Progress title="Sections complete" x={0} y={20} />
-        </Accordion>
-      </div>
-      <div className="mb-10">
-        <Accordion title="Paul's Promises" description='Paul likes to make promises. His apps will be live "soon"'>
-          <PromisesTable />
         </Accordion>
       </div>
     </div>

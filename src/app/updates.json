@@ -1,0 +1,17 @@
+{
+    "update1": {
+        "title": "Update 1",
+        "date": "2023-01-01",
+        "description": "Description for update 1"
+    },
+    "update2": {
+        "title": "Update 2",
+        "date": "2023-02-01",
+        "description": "Description for update 2"
+    },
+    "update3": {
+        "title": "Update 3",
+        "date": "2023-03-01",
+        "description": "Description for update 3"
+    }
+}
