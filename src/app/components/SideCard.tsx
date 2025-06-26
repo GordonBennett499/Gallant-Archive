@@ -56,7 +56,7 @@ const SideCard = ({ data }: SideCardProps) => {
                 Links
                 <div className="font-normal text-base">
 
-                    {data.links.length > 0 ? (
+                    {data.links && data.links.length > 0 ? (
                         data.links.map((link: any, index: number) => (
                             <div key={index} >
                                 <Link href={link.url || ' '} target="_blank" className="text-violet-400">{link.label}</Link>
