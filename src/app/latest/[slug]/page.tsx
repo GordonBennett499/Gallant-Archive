@@ -1,65 +1,46 @@
-import path from "path";
-import posts from '../../updates.json';
-import SideCard from '@/app/components/SideCard';
-import { readFile, access } from "fs/promises";
+import { MDXRemote } from 'next-mdx-remote-client/rsc';
+import posts from '../../../../public/cache/posts.json';
 
-import { evaluate, type EvaluateOptions, MDXRemote } from "next-mdx-remote-client/rsc";
+import Link from "next/link";
 
-const POSTS_FOLDER = path.join('/../../src/content/posts');
-
-type Frontmatter = {
+type PostData = {
     title: string;
     date: string;
-};
+    description: string;
+    content: string;
+    img: string;
+}
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const post = posts[slug as keyof typeof posts];
-    const source = await readPostFile(slug);
+    const postObject = posts[slug as keyof typeof posts];
 
-    if (!post || !source) {
-        return <div>Post not found</div>;
+    if (!postObject || typeof postObject !== 'object' || !('data' in postObject)) {
+        return <div className="text-red-500">Post not found</div>;
     }
 
-    const options: EvaluateOptions = {
-        mdxOptions: {},
-        parseFrontmatter: true,
-    };
-
-    const { content, frontmatter } = await evaluate<Frontmatter>({
-        source,
-        options
-    });
+    const postData = postObject.data as PostData;
 
     return (
         <div>
             <div className="border-b py-2 mb-5 flex flex-row justify-between items-baseline">
-                <h1 className="text-2xl font-bold">{frontmatter.title || ' '}</h1>
-                <span className="ml-3 text-sm text-gray-500 font-normal">{frontmatter.date || ' '}</span>
+                <h1 className="text-2xl font-bold">{postData.title || ' '}</h1>
+                <span className="ml-3 text-sm text-gray-500 font-normal">{postData.date || ' '}</span>
             </div>
             <div className="flex md:flex-row flex-col-reverse gap-5">
                 <div className="w-full lg:w-3/5">
-                    <div className="mb-5 pt-5 w-full border-b pb-3" dangerouslySetInnerHTML={{ __html: post.description || ' ' }}></div>
+                    <div className="mb-5 pt-5 w-full border-b pb-3" dangerouslySetInnerHTML={{ __html: postData.description || ' ' }}></div>
                     <div className="markdown-content">
-                        {content}
+                        <MDXRemote source={postObject.content} />
                     </div>
+                </div>
+                <div className="w-full lg:w-2/5 top-10 h-100 md:h-auto">
+                    <Link href={postData.img} target="_blank" rel="noopener noreferrer">
+                        <img src={postData.img} alt={postData.title} className="w-full h-full object-cover h-auto border rounded-md" />
+                    </Link>
                 </div>
             </div>
 
         </div>
     );
-}
-
-async function readPostFile(slug: string) {
-    const p = path.join(process.cwd(), POSTS_FOLDER, `${slug}.mdx`);
-    const filePath = path.resolve(p);
-
-    try {
-        await access(filePath);
-    } catch (err) {
-        return null;
-    }
-
-    const fileContent = await readFile(filePath, { encoding: "utf8" });
-    return fileContent;
 }

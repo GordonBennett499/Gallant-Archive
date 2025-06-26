@@ -5,21 +5,55 @@ import Progress from "./components/Progress";
 import PromisesTable from './components/PromisesTable';
 import Accordion from './components/Accordion';
 
-import projects from './projects.json';
+import projects from '../../public/cache/projects.json';
+import updates from '../../public/cache/posts.json';
 
 export default async function Home() {
 
   return (
     <div className="">
       <div className="mb-5">
+        <div className="grid grid-cols-1 gap-5 mt-5">
+        {Object.keys(updates).slice(0, 1).map((pid) => {
+          const updateEntry = updates[pid as keyof typeof updates];
+          if (
+            typeof updateEntry === "object" &&
+            updateEntry !== null &&
+            "data" in updateEntry
+          ) {
+            const update = updateEntry.data;
+            return (
+              <Card key={pid} title={update.title} url={`/latest/${pid}`}>{update.description}</Card>
+            );
+          }
+          return null;
+        })}
+        </div>
+        <p className="flex justify-end">
+          <Link href="/latest" className="text-violet-400 hover:text-violet-500 flex items-center gap-1 mt-3">
+            View more <MoveRight className="w-4 h-4" />
+          </Link>
+        </p>
+      </div>
+      <div className="mb-5">
         <h2 className="text-xl font-bold mt-4 mb-2">Paul's Projects</h2>
         <p>Paul has a lot of projects in the works. It's doubtful any of them will ever see the light of day.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
           {Object.keys(projects).slice(0, 6).map((pid) => {
-            const project = projects[pid as keyof typeof projects];
-            return (
-              <Card key={pid} title={project.title} url={`/projects/${pid}`}><span dangerouslySetInnerHTML={{ __html: project.description }}></span></Card>
-            )
+            const projectEntry = projects[pid as keyof typeof projects];
+            if (
+              typeof projectEntry === "object" &&
+              projectEntry !== null &&
+              "data" in projectEntry
+            ) {
+              const project = projectEntry.data;
+              return (
+                <Card key={pid} title={project.title} url={`/projects/${pid}`}>
+                  <span dangerouslySetInnerHTML={{ __html: project.description }}></span>
+                </Card>
+              );
+            }
+            return null;
           })}
         </div>
         <p className="flex justify-end">
