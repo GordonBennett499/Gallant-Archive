@@ -7,6 +7,7 @@ import Accordion from './components/Accordion';
 
 import projects from '../../public/cache/projects.json';
 import updates from '../../public/cache/posts.json';
+import Badge from "./components/Badge";
 
 export default async function Home() {
 
@@ -14,20 +15,27 @@ export default async function Home() {
     <div className="">
       <div className="mb-5">
         <div className="grid grid-cols-1 gap-5 mt-5">
-        {Object.keys(updates).slice(0, 1).map((pid) => {
-          const updateEntry = updates[pid as keyof typeof updates];
-          if (
-            typeof updateEntry === "object" &&
-            updateEntry !== null &&
-            "data" in updateEntry
-          ) {
-            const update = updateEntry.data;
-            return (
-              <Card key={pid} title={update.title} url={`/latest/${pid}`}>{update.description}</Card>
-            );
-          }
-          return null;
-        })}
+          {Object.keys(updates).slice(0, 1).map((pid) => {
+            const updateEntry = updates[pid as keyof typeof updates];
+            if (
+              typeof updateEntry === "object" &&
+              updateEntry !== null &&
+              "data" in updateEntry
+            ) {
+              const update = updateEntry.data;
+              return (
+                <Card key={pid} title={update.title} url={`/latest/${pid}`}>
+                  {update.description}
+                  <div className="mt-2">
+                    {update.tags && update.tags.map((tag, index) => (
+                      <Badge text={tag} key={index} />
+                    ))}
+                  </div>
+                </Card>
+              );
+            }
+            return null;
+          })}
         </div>
         <p className="flex justify-end">
           <Link href="/latest" className="text-violet-400 hover:text-violet-500 flex items-center gap-1 mt-3">
@@ -62,7 +70,7 @@ export default async function Home() {
           </Link>
         </p>
       </div>
-            <div className="mb-10">
+      <div className="mb-10">
         <h2 className="text-xl font-bold mt-4 mb-2">Paul's Promises</h2>
         <p>Paul likes to make promises. His apps will be live "soon"</p>
         <PromisesTable />

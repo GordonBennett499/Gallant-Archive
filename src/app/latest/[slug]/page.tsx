@@ -3,12 +3,13 @@ import posts from '../../../../public/cache/posts.json';
 
 import Link from "next/link";
 
-type PostData = {
+export type PostData = {
     title: string;
     date: string;
     description: string;
     content: string;
     img: string;
+    tags?: string[];
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
@@ -29,15 +30,17 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             </div>
             <div className="flex md:flex-row flex-col-reverse gap-5">
                 <div className="w-full lg:w-3/5">
-                    <div className="mb-5 pt-5 w-full border-b pb-3" dangerouslySetInnerHTML={{ __html: postData.description || ' ' }}></div>
+                    <div className="mb-5 w-full border-b pb-3" dangerouslySetInnerHTML={{ __html: postData.description || ' ' }}></div>
                     <div className="markdown-content">
                         <MDXRemote source={postObject.content} />
                     </div>
                 </div>
                 <div className="w-full lg:w-2/5 top-10 h-100 md:h-auto">
-                    <Link href={postData.img} target="_blank" rel="noopener noreferrer">
-                        <img src={postData.img} alt={postData.title} className="w-full h-full object-cover h-auto border rounded-md" />
-                    </Link>
+                    {postData.img && (
+                        <Link href={postData.img} target="_blank" rel="noopener noreferrer">
+                            <img src={postData.img} alt={postData.title} className="w-full h-full object-cover h-auto border rounded-md" />
+                        </Link>
+                    )}
                 </div>
             </div>
 
