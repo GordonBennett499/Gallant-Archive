@@ -14,7 +14,7 @@ export default async function Home() {
   return (
     <div className="">
       <div className="mb-5">
-        <div className="grid grid-cols-1 gap-5 mt-5">
+        <div className="mt-5">
           {Object.keys(updates).slice(0, 1).map((pid) => {
             const updateEntry = updates[pid as keyof typeof updates];
             if (

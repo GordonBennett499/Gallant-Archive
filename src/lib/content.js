@@ -7,7 +7,7 @@ const getAll = (dir) => {
   const directory = path.join(process.cwd(), `src/content/${dir}`);
   const fileNames = fs.readdirSync(directory);
   // Get the content of the files as JSON
-  const content = fileNames.map((fileName) => {
+  let content = fileNames.map((fileName) => {
     const slug = fileName.replace(/\.md$/, "");
     const fullPath = path.join(directory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -17,6 +17,18 @@ const getAll = (dir) => {
       ...matterResult
     };
   });
+  // Sort the content by date.
+  if (content.length > 0 && content[0].data.date) {
+    // JS doesn't like UK date format.. so we need to parse it manually.
+    content = content.sort((a, b) => {
+      let aDate = a.data.date.split('/');
+      let bDate = b.data.date.split('/');
+      aDate = new Date(aDate[2], aDate[1], aDate[0]);
+      bDate = new Date(bDate[2], bDate[1], bDate[0]);
+      return bDate - aDate;
+    });
+  }
+
   // Return a big array of JSON
   return JSON.stringify(content);
 }
