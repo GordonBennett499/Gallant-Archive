@@ -35,13 +35,13 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                         <MDXRemote source={postObject.content} />
                     </div>
                 </div>
-                <div className="w-full lg:w-2/5 top-10 h-100 md:h-auto">
-                    {postData.img && (
+                {postData.img && (
+                    <div className="w-full lg:w-2/5 top-10 h-100 md:h-auto">
                         <Link href={postData.img} target="_blank" rel="noopener noreferrer">
                             <img src={postData.img} alt={postData.title} className="w-full h-full object-cover h-auto border rounded-md" />
                         </Link>
-                    )}
-                </div>
+                    </div>
+                )}
             </div>
 
         </div>
