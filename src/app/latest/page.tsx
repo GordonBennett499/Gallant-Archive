@@ -2,7 +2,6 @@ import { log } from 'console';
 import posts from '../../../public/cache/posts.json';
 import Badge from '../components/Badge';
 import Card from '../components/Card';
-import { PostData } from './[slug]/page';
 
 export default function UpdatesPage() {
     return (
@@ -12,7 +11,7 @@ export default function UpdatesPage() {
                 {Object.keys(posts).map((pid) => {
                     const postEntry = posts[pid as keyof typeof posts];
                     if (typeof postEntry === 'object' && postEntry !== null && 'data' in postEntry) {
-                        const post = postEntry.data as PostData;
+                        const post = postEntry.data;
                         return (
                             <Card key={pid} title={post.title} url={`/latest/${postEntry.slug}`}>
                                 {post.description}
