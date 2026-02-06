@@ -13,9 +13,11 @@ export default async function Home() {
 
   return (
     <div className="">
-      <div className="mb-5">
-        <div className="mt-5">
-          {Object.keys(updates).slice(0, 1).map((pid) => {
+      <div className="mb-5 mt-5">
+        <h2 className="text-xl font-bold mt-4 mb-2">The Archive</h2>
+        <p>There's a lot going on in Paul's life - or so he'll tell you. Here we try to put some of this info together so that we may look back on it in the future.</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+          {Object.keys(updates).slice(0, 3).map((pid) => {
             const updateEntry = updates[pid as keyof typeof updates];
             if (
               typeof updateEntry === "object" &&
