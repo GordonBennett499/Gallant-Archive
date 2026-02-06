@@ -3,6 +3,7 @@ import { readFile, access } from "fs/promises";
 import { evaluate, type EvaluateOptions } from "next-mdx-remote-client/rsc";
 import remarkGfm from "remark-gfm";
 import Link from "next/link";
+import { useMDXComponents } from "@/app/mdx-components";
 
 const POSTS_FOLDER = path.join('/../../src/content/posts');
 
@@ -36,7 +37,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
     const { content, frontmatter } = await evaluate<Frontmatter>({
         source,
-        options
+        options,
+        components: useMDXComponents({})
     });
 
     return (

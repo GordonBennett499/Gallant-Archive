@@ -14,7 +14,7 @@ export default function Accordion({ title, description, children, ...params }: A
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border rounded-md p-4 pt-3">
+        <div className="border rounded-md p-4 pt-3 my-5">
             <div className="cursor-pointer flex flex-row justify-between items-center" onClick={() => setIsOpen(!isOpen)}>
                 <div>
                     <h3 className="text-xl font-bold mb-0">{title}</h3>

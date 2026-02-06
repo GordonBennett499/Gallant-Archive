@@ -23,27 +23,27 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-.markdown-content p {
+.markdown-content :not(div) p {
   margin: 0 0 .5rem;
 }
 
-.markdown-content p a {
+.markdown-content :not(div) p a {
   color: var(--color-violet-400);
 }
 
-.markdown-content p a:hover,
-.markdown-content p a:focus {
+.markdown-content :not(div) p a:hover,
+.markdown-content :not(div) p a:focus {
   color: var(--color-violet-500);
 }
 
-.markdown-content h2 {
+.markdown-content :not(div) h2 {
   margin-top: 2rem;
   margin-bottom: .5rem;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
-.markdown-content h3 {
+.markdown-content :not(div) h3 {
   margin-top: 1rem;
   margin-bottom: .5rem;
   font-size: 1.15rem;
