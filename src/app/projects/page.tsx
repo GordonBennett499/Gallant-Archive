@@ -12,7 +12,7 @@ export default function ProjectsPage() {
                     if (typeof proj === 'object' && proj !== null && 'data' in proj) {
                         const project = proj.data;
                         return (
-                            <Card key={pid} title={project.title} url={`/projects/${pid}`}>
+                            <Card key={pid} title={project.title} url={`/projects/${proj.slug}`}>
                                 <span dangerouslySetInnerHTML={{__html: project.description}}></span>
                             </Card>
                         );

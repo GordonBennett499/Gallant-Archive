@@ -1,6 +1,7 @@
 import path from "path";
 import { readFile, access } from "fs/promises";
 import { evaluate, type EvaluateOptions } from "next-mdx-remote-client/rsc";
+import remarkGfm from "remark-gfm";
 
 const POSTS_FOLDER = path.join('/../../src/content');
 
@@ -20,7 +21,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     }
 
     const options: EvaluateOptions = {
-        mdxOptions: {},
+        mdxOptions: {
+            remarkPlugins: [remarkGfm],
+        },
         parseFrontmatter: true,
     };
 

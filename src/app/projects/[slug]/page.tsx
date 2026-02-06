@@ -1,8 +1,12 @@
-import { MDXRemote } from 'next-mdx-remote-client/rsc';
-import projects from '../../../../public/cache/projects.json';
+import { evaluate, EvaluateOptions, MDXRemote } from 'next-mdx-remote-client/rsc';
 import SideCard from '@/app/components/SideCard';
+import remarkGfm from 'remark-gfm';
+import path from 'path';
+import { access, readFile } from 'fs/promises';
 
-type ProjectData = {
+const POSTS_FOLDER = path.join('/../../src/content/projects');
+
+type Frontmatter = {
     title: string;
     description: string;
     content: string;
@@ -10,29 +14,55 @@ type ProjectData = {
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const projectObject = projects[slug as keyof typeof projects];
+    
+    const postContent = await readPostFile(slug);
+    const source = await readPostFile(slug);
 
-    if (!projectObject || typeof projectObject !== 'object' || !('data' in projectObject)) {
-        return <div className="text-red-500">Post not found</div>;
+    if (!postContent || !source) {
+        return <div>Post not found</div>;
     }
 
-    const projectData = projectObject?.data as ProjectData;
+    const options: EvaluateOptions = {
+        mdxOptions: {
+            remarkPlugins: [remarkGfm],
+        },
+        parseFrontmatter: true,
+    };
+
+    const { content, frontmatter } = await evaluate<Frontmatter>({
+        source,
+        options
+    });
 
     return (
         <div>
-            <h1 className="text-2xl font-bold border-b py-2 mb-5">{projectData.title || ' '}</h1>
+            <h1 className="text-2xl font-bold border-b py-2 mb-5">{frontmatter.title || ' '}</h1>
             <div className="flex md:flex-row flex-col-reverse gap-5">
                 <div className="w-full lg:w-3/5">
-                    <div className="mb-5 pt-5 w-full border-b pb-3" dangerouslySetInnerHTML={{ __html: projectData.description || ' ' }}></div>
+                    <div className="mb-5 pt-5 w-full border-b pb-3" dangerouslySetInnerHTML={{ __html: frontmatter.description || ' ' }}></div>
                     <div className="markdown-content">
-                        <MDXRemote source={projectObject.content} />
+                        { content }
                     </div>
                 </div>
                 <div className="w-full lg:w-2/5 top-10">
-                    <SideCard data={projectData} />
+                    <SideCard data={frontmatter} />
                 </div>
             </div>
 
         </div>
     );
+}
+
+async function readPostFile(slug: string) {
+    const p = path.join(process.cwd(), POSTS_FOLDER, `${slug}.mdx`);
+    const filePath = path.resolve(p);
+
+    try {
+        await access(filePath);
+    } catch (err) {
+        return null;
+    }
+
+    const fileContent = await readFile(filePath, { encoding: "utf8" });
+    return fileContent;
 }

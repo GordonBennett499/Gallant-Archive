@@ -26,7 +26,7 @@ export default async function Home() {
             ) {
               const update = updateEntry.data;
               return (
-                <Card key={pid} title={update.title} url={`/latest/${pid}`}>
+                <Card key={pid} title={update.title} url={`/latest/${updateEntry.slug}`}>
                   {update.description}
                   <div className="mt-2">
                     {update.tags && update.tags.map((tag, index) => (
@@ -58,7 +58,7 @@ export default async function Home() {
             ) {
               const project = projectEntry.data;
               return (
-                <Card key={pid} title={project.title} url={`/projects/${pid}`}>
+                <Card key={pid} title={project.title} url={`/projects/${projectEntry.slug}`}>
                   <span dangerouslySetInnerHTML={{ __html: project.description }}></span>
                 </Card>
               );

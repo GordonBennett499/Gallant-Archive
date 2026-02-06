@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
+const { log } = require("console");
 
 const getAll = (dir) => {
     // Read files at _posts/{directory}
@@ -8,7 +9,7 @@ const getAll = (dir) => {
   const fileNames = fs.readdirSync(directory);
   // Get the content of the files as JSON
   let content = fileNames.map((fileName) => {
-    const slug = fileName.replace(/\.md$/, "");
+    const slug = fileName.replace(/\.mdx$/, "");
     const fullPath = path.join(directory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const matterResult = matter(fileContents);
